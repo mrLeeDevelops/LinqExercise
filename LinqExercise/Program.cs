@@ -47,7 +47,17 @@ namespace LinqExercise
 
             }
             Console.WriteLine("");
+            Console.WriteLine("");
             //Print to the console only the numbers greater than 6
+            var few = numbers.Where(num => num > 6).ToArray();
+            Console.WriteLine("NUMBERS > 6");
+            Console.WriteLine("-----------");
+            for (int y = 0; y < few.Length; y++)
+            {
+              Console.Write($"{few[y]} ");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             //Order numbers in any order (acsending or desc) but only print 4 of them **foreach loop only!**
 
