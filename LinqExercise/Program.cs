@@ -48,7 +48,7 @@ namespace LinqExercise
             }
             Console.WriteLine("");
             Console.WriteLine("");
-            //Print to the console only the numbers greater than 6
+            //DONE--Print to the console only the numbers greater than 6
             var few = numbers.Where(num => num > 6).ToArray();
             Console.WriteLine("NUMBERS > 6");
             Console.WriteLine("-----------");
@@ -59,8 +59,17 @@ namespace LinqExercise
             Console.WriteLine("");
             Console.WriteLine("");
 
-            //Order numbers in any order (acsending or desc) but only print 4 of them **foreach loop only!**
-
+            //DONE--Order numbers in any order (acsending or desc) but only print 4 of them **foreach loop only!**
+            var asc = numbers.OrderBy(num => num).ToArray();
+            var four = asc.Where(num => num < asc.Length - 6).ToArray();
+            Console.WriteLine("FOUR NUMBERS");
+            Console.WriteLine("------------");
+            foreach (int one in four)
+            {
+                Console.Write($"{one}");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
             //Change the value at index 4 to your age, then print the numbers in decsending order
 
             // List of employees ***Do not remove this***
