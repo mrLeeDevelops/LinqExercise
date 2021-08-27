@@ -164,11 +164,25 @@ namespace LinqExercise
             }
             Console.WriteLine("");
             Console.WriteLine("");
-            //Print the Sum and then the Average of the employees' YearsOfExperience
+            //DONE--Print the Sum and then the Average of the employees' YearsOfExperience
             //if their YOE is less than or equal to 10 AND Age is greater than 35
-
+            Console.WriteLine("YEARS OF EXOERIENCE");
+            Console.WriteLine("--------------------"); 
+            var experience = employees.Where(x => x.Age > 35).Where(y => y.YearsOfExperience <= 10);
+            int yearsSum = 0;
+            int yearsAvg = 0;
+            foreach (var item in experience)
+            {
+                Console.WriteLine($"{item.FullName}, {item.YearsOfExperience}");
+                yearsSum += item.YearsOfExperience;
+            }
+            Console.WriteLine("--------------------");
+            yearsAvg = yearsSum / (experience.Count());
+            Console.WriteLine($"SUM : {yearsSum}  AVERAGE: {yearsAvg}");
+            Console.WriteLine("");
+            Console.WriteLine("");
             //Add an employee to the end of the list without using employees.Add()
-
+            //use .ToArray, then add employee to Array then change back with .ToList
 
             Console.WriteLine();
 
