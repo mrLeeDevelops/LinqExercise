@@ -144,9 +144,26 @@ namespace LinqExercise
             Console.WriteLine("");
             Console.WriteLine("");
 
-            //Print all the employees' FullName and Age who are over the age 26 to the console.
-            //Order this by Age first and then by FirstName in the same result.
-
+            //DONE--Print all the employees' FullName and Age who are over the age 26 to the console.
+            Console.WriteLine("EMPLOYEES OVER 26");
+            Console.WriteLine("---------------------");
+            var twentySix = employees.Where(x => x.Age > 26);
+            foreach (var one in twentySix)
+            {
+                Console.WriteLine($"{one.FullName}, {one.Age}");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
+            //DONE--Order this by Age first and then by FirstName in the same result.
+            Console.WriteLine("ORDERED LIST");
+            Console.WriteLine("----------------------");
+            var employeeList = twentySix.OrderBy(x => x.Age).ThenBy(x => x.FirstName); 
+            foreach (var list in employeeList)
+            {
+                Console.WriteLine($"{list.FullName}, {list.Age}");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
             //Print the Sum and then the Average of the employees' YearsOfExperience
             //if their YOE is less than or equal to 10 AND Age is greater than 35
 
