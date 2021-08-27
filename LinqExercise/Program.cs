@@ -181,9 +181,26 @@ namespace LinqExercise
             Console.WriteLine($"SUM : {yearsSum}  AVERAGE: {yearsAvg}");
             Console.WriteLine("");
             Console.WriteLine("");
-            //Add an employee to the end of the list without using employees.Add()
-            //use .ToArray, then add employee to Array then change back with .ToList
+            //DONE--Add an employee to the end of the list without using employees.Add()
+            Console.WriteLine("OLD EMPLOYEES");
+            Console.WriteLine("-------------");
+            foreach (var emp in employees)
+            {
+                Console.WriteLine($"{emp.FullName}, {emp.Age}, {emp.YearsOfExperience}");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
+            var newHire = new Employee() {FirstName = "D'Mario", LastName = "Jones", Age = 29 , YearsOfExperience = 10 };
+            employees.Insert(10 , newHire);
+            Console.WriteLine("NEW EMPLOYEES");
+            Console.WriteLine("-------------"); 
+            foreach (var emp in employees)
+            {
+                Console.WriteLine($"{emp.FullName}, {emp.Age}, {emp.YearsOfExperience}");
+            }
 
+            Console.WriteLine("");
+            Console.WriteLine(""); 
             Console.WriteLine();
 
             Console.ReadLine();
