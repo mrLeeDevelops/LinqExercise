@@ -70,13 +70,79 @@ namespace LinqExercise
             }
             Console.WriteLine("");
             Console.WriteLine("");
-            //Change the value at index 4 to your age, then print the numbers in decsending order
-
+            //DONE--Change the value at index 4 to your age, then print the numbers in decsending order
+            //The steps are:
+            //1) Print unaltered array.
+            Console.WriteLine("UNALTERED ARRAY");
+            Console.WriteLine("-------------------");
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.Write($"{numbers[i]} ");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
+            //2) change array to list.
+            var numbers2 = numbers.ToList();
+            //3) select element at index 4 and save its value to a variable.
+            var index4 = numbers2.ElementAt(4);
+            numbers2.RemoveAt(4);
+            //4) Change the value of index4 variable.
+            index4 = 43;
+            //5) Add index 4 to the end of list.
+            numbers2.Add(index4);
+            //6) order list in descending order and change list to array.
+            var orderList = numbers2.OrderByDescending(num => num).ToArray();
+            //7) Print array.
+            Console.WriteLine("ALTERED ARRAY");
+            Console.WriteLine("--------------------");
+            for (int i = 0; i < orderList.Length; i++)
+            {
+                Console.Write($"{orderList[i]} ");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
             // List of employees ***Do not remove this***
             var employees = CreateEmployees();
 
-            //Print all the employees' FullName properties to the console only if their FirstName starts with a C OR an S.
-            //Order this in acesnding order by FirstName.
+            //DONE--Print all the employees' FullName properties to the console only if their FirstName starts with a C OR an S.
+            Console.WriteLine("CERTAIN EMPLOYEES");
+            Console.WriteLine("-----------------");
+            var selectEmployees = new List<Employee>();
+            /*foreach (var employee in employees)
+            {
+                if (employee.FirstName.ElementAt(0) == 'C')
+                {
+                    selectEmployees.Add(employee);
+                    Console.WriteLine(employee.FullName);
+                }
+                else if (employee.FirstName.ElementAt(0) == 'S')
+                {
+                    selectEmployees.Add(employee);
+                    Console.WriteLine(employee.FullName);
+                }
+            }*/
+
+            foreach (var employee in employees)
+            {
+                if (employee.FirstName.ElementAt(0).ToString().IndexOf('C') != -1 || employee.FirstName.ElementAt(0).ToString().IndexOf('S') != -1)
+                {
+                    selectEmployees.Add(employee);
+                    Console.WriteLine(employee.FullName);
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+            //DONE--Order this in acesnding order by FirstName.
+            selectEmployees = selectEmployees.OrderBy(x => x.FirstName).ToList();
+            Console.WriteLine("ASCENDING ORDER");
+            Console.WriteLine("-----------------");
+            foreach (Employee emp in selectEmployees)
+            {
+                Console.WriteLine(emp.FullName);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             //Print all the employees' FullName and Age who are over the age 26 to the console.
             //Order this by Age first and then by FirstName in the same result.
@@ -86,7 +152,7 @@ namespace LinqExercise
 
             //Add an employee to the end of the list without using employees.Add()
 
-            
+
             Console.WriteLine();
 
             Console.ReadLine();
